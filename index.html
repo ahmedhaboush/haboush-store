@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حبوش | HABOUSH — مستحضرات تجميل احترافية</title>
+  <meta name="description" content="حبوش - متجر مستحضرات التجميل الاحترافي في غزة. منتجات شعر، مكياج، عناية بالبشرة والأظافر لصالونات التجميل." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <nav class="nav-container">
+      <div class="logo" id="logo-btn">
+        <div class="logo-mark">
+          <span class="logo-a">A</span><span class="logo-h">H</span>
+        </div>
+        <div class="logo-text">
+          <span class="brand-ar">حبوش</span>
+          <span class="brand-en">HABOUSH</span>
+        </div>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+        <li><a href="#categories" class="nav-link">المنتجات</a></li>
+        <li><a href="#about" class="nav-link">من نحن</a></li>
+        <li><a href="#how-to-order" class="nav-link">كيف تطلب؟</a></li>
+        <li><a href="#contact" class="nav-link">تواصل معنا</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="cart-btn" id="cart-btn" aria-label="سلة التسوق">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <button class="menu-btn" id="menu-btn" aria-label="القائمة">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">✨ مستحضرات احترافية للصالونات</div>
+      <h1 class="hero-title">
+        جمالك يستحق
+        <span class="gold-text">الأفضل</span>
+      </h1>
+      <p class="hero-subtitle">
+        كل ما تحتاجينه في صالونك من منتجات شعر، مكياج،
+        عناية بالبشرة والأظافر — بجودة عالية وتوصيل داخل غزة
+      </p>
+      <div class="hero-actions">
+        <a href="#categories" class="btn btn-primary">تصفحي المنتجات</a>
+        <a href="#how-to-order" class="btn btn-outline">كيف تطلبين؟</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">70+</span>
+          <span class="stat-label">منتج متوفر</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">6</span>
+          <span class="stat-label">فئات رئيسية</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">غزة</span>
+          <span class="stat-label">توصيل شامل</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card floating">
+        <div class="hero-card-icon">💄</div>
+        <p>مكياج احترافي</p>
+      </div>
+      <div class="hero-card floating delay-1">
+        <div class="hero-card-icon">💇</div>
+        <p>منتجات شعر</p>
+      </div>
+      <div class="hero-card floating delay-2">
+        <div class="hero-card-icon">💅</div>
+        <p>عناية أظافر</p>
+      </div>
+      <div class="hero-card floating delay-3">
+        <div class="hero-card-icon">🧖</div>
+        <p>عناية بشرة</p>
+      </div>
+    </div>
+    <a href="#categories" class="scroll-down">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section id="categories" class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">تصفحي بحسب الفئة</span>
+        <h2 class="section-title">منتجاتنا</h2>
+        <p class="section-subtitle">كل ما يحتاجه الصالون الاحترافي في مكان واحد</p>
+      </div>
+      <div class="categories-grid">
+        <div class="category-card active" data-category="all" id="cat-all">
+          <div class="cat-icon">🛍️</div>
+          <h3>الكل</h3>
+          <span class="cat-count" id="count-all">70+</span>
+        </div>
+        <div class="category-card" data-category="hair" id="cat-hair">
+          <div class="cat-icon">💇</div>
+          <h3>منتجات الشعر</h3>
+          <span class="cat-count" id="count-hair">30+</span>
+        </div>
+        <div class="category-card" data-category="nails" id="cat-nails">
+          <div class="cat-icon">💅</div>
+          <h3>الأظافر</h3>
+          <span class="cat-count" id="count-nails">9</span>
+        </div>
+        <div class="category-card" data-category="skin" id="cat-skin">
+          <div class="cat-icon">🧖</div>
+          <h3>العناية بالبشرة</h3>
+          <span class="cat-count" id="count-skin">10</span>
+        </div>
+        <div class="category-card" data-category="makeup" id="cat-makeup">
+          <div class="cat-icon">💄</div>
+          <h3>المكياج</h3>
+          <span class="cat-count" id="count-makeup">14</span>
+        </div>
+        <div class="category-card" data-category="tools" id="cat-tools">
+          <div class="cat-icon">🪮</div>
+          <h3>أدوات الصالون</h3>
+          <span class="cat-count" id="count-tools">15</span>
+        </div>
+        <div class="category-card" data-category="removal" id="cat-removal">
+          <div class="cat-icon">🌸</div>
+          <h3>إزالة الشعر</h3>
+          <span class="cat-count" id="count-removal">4</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products" class="products-section">
+    <div class="container">
+      <div class="products-toolbar">
+        <div class="search-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="search-input" placeholder="ابحثي عن منتج..." />
+        </div>
+        <span class="products-count" id="products-count">عرض جميع المنتجات</span>
+      </div>
+      <div class="products-grid" id="products-grid">
+        <!-- Products injected by JS -->
+      </div>
+      <div class="no-results hidden" id="no-results">
+        <div class="no-results-icon">🔍</div>
+        <p>لا توجد منتجات مطابقة للبحث</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="about-section">
+    <div class="container about-grid">
+      <div class="about-visual">
+        <img src="assets/logo.jpg" alt="حبوش" class="about-logo-img" style="max-width: 280px; border-radius: var(--radius); box-shadow: var(--shadow-gold);" />
+        <div class="about-glow"></div>
+      </div>
+      <div class="about-content">
+        <span class="section-badge">من نحن</span>
+        <h2 class="section-title">قصة حبوش</h2>
+        <p class="about-text">
+          حبوش هو أكثر من مجرد متجر — هو وجهة الكوافيرة الفلسطينية التي تبحث عن جودة حقيقية في كل منتج تضعه في يدها.
+        </p>
+        <p class="about-text">
+          نؤمن بأن كل امرأة تستحق منتجات احترافية تليق بجمالها، ولذلك نختار بعناية كل ما نقدمه — من صبغات الشعر إلى أدوات الصالون المتخصصة.
+        </p>
+        <p class="about-text">
+          نوصّل داخل قطاع غزة بالكامل، من شماله إلى جنوبه، لأن جمالك لا يعرف حدوداً.
+        </p>
+        <div class="about-features">
+          <div class="feature">
+            <span class="feature-icon">✅</span>
+            <span>منتجات مختارة بعناية</span>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">🚚</span>
+            <span>توصيل داخل غزة</span>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">💬</span>
+            <span>دعم عبر واتساب</span>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">💳</span>
+            <span>دفع عند الاستلام أو بنكياً</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW TO ORDER ===== -->
+  <section id="how-to-order" class="order-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">بسيط وسريع</span>
+        <h2 class="section-title">كيف تطلبين؟</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">١</div>
+          <div class="step-icon">🛍️</div>
+          <h3>اختاري المنتجات</h3>
+          <p>تصفحي الكتالوج وأضيفي ما تريدين لسلة التسوق</p>
+        </div>
+        <div class="step-arrow">←</div>
+        <div class="step-card">
+          <div class="step-num">٢</div>
+          <div class="step-icon">📋</div>
+          <h3>راجعي الطلب</h3>
+          <p>تأكدي من المنتجات والكمية في سلة التسوق</p>
+        </div>
+        <div class="step-arrow">←</div>
+        <div class="step-card">
+          <div class="step-num">٣</div>
+          <div class="step-icon">💬</div>
+          <h3>أرسلي عبر واتساب</h3>
+          <p>اضغطي "أرسلي الطلب" وسيُرسل تلقائياً لواتساب</p>
+        </div>
+        <div class="step-arrow">←</div>
+        <div class="step-card">
+          <div class="step-num">٤</div>
+          <div class="step-icon">🚚</div>
+          <h3>استلمي طلبك</h3>
+          <p>نؤكد الطلب ونوصّله لباب بيتك داخل غزة</p>
+        </div>
+      </div>
+
+      <div class="payment-methods">
+        <h3 class="payment-title">طرق الدفع المتاحة</h3>
+        <div class="payment-grid">
+          <div class="payment-card">
+            <div class="payment-icon">💵</div>
+            <h4>كاش عند الاستلام</h4>
+            <p>ادفعي عند وصول طلبك</p>
+          </div>
+          <div class="payment-card">
+            <div class="payment-icon">🏦</div>
+            <h4>بنك فلسطين</h4>
+            <p>تحويل بنكي<br/><strong>0593805308</strong></p>
+          </div>
+          <div class="payment-card">
+            <div class="payment-icon">📱</div>
+            <h4>جوال باي</h4>
+            <p>دفع إلكتروني<br/><strong>0593805308</strong></p>
+          </div>
+          <div class="payment-card">
+            <div class="payment-icon">💳</div>
+            <h4>بال باي</h4>
+            <p>دفع إلكتروني<br/><strong>0593805308</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">نحن هنا</span>
+        <h2 class="section-title">تواصلي معنا</h2>
+        <p class="section-subtitle">لأي استفسار أو طلب خاص — نرد في أسرع وقت</p>
+      </div>
+      <div class="contact-grid">
+        <a href="https://wa.me/970593805308" target="_blank" class="contact-card whatsapp-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </div>
+          <h3>واتساب</h3>
+          <p>+970593805308</p>
+          <span class="contact-action">راسلينا الآن ←</span>
+        </a>
+        <a href="mailto:ahmedhaboosh2005@gmail.com" class="contact-card email-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3>الإيميل</h3>
+          <p>ahmedhaboosh2005@gmail.com</p>
+          <span class="contact-action">أرسلي إيميل ←</span>
+        </a>
+        <div class="contact-card location-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>التوصيل</h3>
+          <p>داخل قطاع غزة<br/>من شمال القطاع إلى جنوبه</p>
+          <span class="contact-action">🚚 توصيل لبابك</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <div class="logo-mark small">
+          <span class="logo-a">A</span><span class="logo-h">H</span>
+        </div>
+        <div class="logo-text">
+          <span class="brand-ar">حبوش</span>
+          <span class="brand-en">HABOUSH</span>
+        </div>
+      </div>
+      <p class="footer-tagline">مستحضرات تجميل احترافية — غزة 🇵🇸</p>
+      <div class="footer-links">
+        <a href="#home">الرئيسية</a>
+        <a href="#categories">المنتجات</a>
+        <a href="#about">من نحن</a>
+        <a href="#contact">تواصل معنا</a>
+      </div>
+      <p class="footer-copy">© 2025 حبوش | HABOUSH — جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <!-- ===== CART SIDEBAR ===== -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2>🛍️ سلة التسوق</h2>
+      <button class="cart-close" id="cart-close" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <div class="cart-empty" id="cart-empty">
+        <div class="cart-empty-icon">🛒</div>
+        <p>سلتك فارغة</p>
+        <a href="#categories" class="btn btn-primary small">تصفحي المنتجات</a>
+      </div>
+    </div>
+    <div class="cart-footer" id="cart-footer" style="display:none">
+      <div class="cart-total">
+        <span>المجموع:</span>
+        <span class="total-price" id="total-price">0 ₪</span>
+      </div>
+      <p class="cart-note">* سيتم التواصل معك لتأكيد سعر التوصيل</p>
+      <button class="btn btn-whatsapp" id="whatsapp-order-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        أرسلي الطلب عبر واتساب
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===== PRODUCT DETAILS MODAL ===== -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="إغلاق">✕</button>
+      <div class="modal-body">
+        <div class="modal-visual">
+          <span class="modal-emoji" id="modal-emoji">💄</span>
+        </div>
+        <div class="modal-info">
+          <span class="modal-badge" id="modal-category">مكياج</span>
+          <h2 class="modal-title" id="modal-title">اسم المنتج</h2>
+          <p class="modal-desc" id="modal-desc">وصف تفصيلي للمنتج ومميزاته وطريقة استخدامه.</p>
+          <div class="modal-footer-row">
+            <span class="modal-price" id="modal-price">0 ₪</span>
+            <button class="btn btn-primary" id="modal-add-btn">أضيفي للسلة 🛍️</button>
+          </div>
+          <button class="btn btn-outline" id="modal-wa-btn" style="width: 100%; margin-top: 12px; justify-content: center; gap: 8px;">
+            استفسار سريع عبر واتساب 💬
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ===== WHATSAPP FLOAT ===== -->
+  <a href="https://wa.me/970593805308" target="_blank" class="whatsapp-float" aria-label="واتساب">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
