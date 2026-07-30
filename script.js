@@ -39,10 +39,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalPrice = document.getElementById("modal-price");
   const modalAddBtn = document.getElementById("modal-add-btn");
   const modalWaBtn = document.getElementById("modal-wa-btn");
+  const modalDetails = document.getElementById("modal-details");
+
+  const sortSelect = document.getElementById("sort-select");
+  const offersOnlyCheckbox = document.getElementById("offers-only-checkbox");
 
   // === حالة التطبيق ===
   let currentCategory = "all";
   let searchQuery = "";
+  let sortOption = "default";
+  let offersOnly = false;
   let cart = JSON.parse(localStorage.getItem("haboush_cart")) || [];
 
   // === تهيئة كميات المخزون في الـ localStorage ===
@@ -63,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // === تهيئة التطبيق ===
   updateCartUI();
   renderProducts();
+  renderHighlights();
+  updateCategoryCounts();
 
   // === تغيير مظهر الهيدر عند التمرير ===
   window.addEventListener("scroll", () => {
@@ -118,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // تحديد وسيط العرض (صورة أو إيموجي)
     if (product.image) {
-      modalEmoji.innerHTML = `<img src="${product.image}" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);" />`;
+      modalEmoji.innerHTML = `<img src="${product.image}" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);" loading="lazy" />`;
     } else {
       modalEmoji.innerHTML = `<span class="modal-emoji-text" style="font-size: 96px;">${product.emoji}</span>`;
     }
@@ -126,7 +134,26 @@ document.addEventListener("DOMContentLoaded", () => {
     modalCategory.textContent = getCategoryName(product.category);
     modalTitle.textContent = product.name;
     modalDesc.textContent = product.description;
-    modalPrice.textContent = `${product.price} ₪`;
+    modalPrice.innerHTML = product.onSale
+      ? `<span class="old-price">${product.oldPrice} ₪</span> ${product.price} ₪`
+      : `${product.price} ₪`;
+
+    // بناء تفاصيل إضافية (تظهر فقط إذا كانت متوفرة لهذا المنتج)
+    const detailRows = [];
+    if (product.skinType) detailRows.push(["نوع البشرة المناسب", product.skinType]);
+    if (product.size) detailRows.push(["الحجم", product.size]);
+    if (product.origin) detailRows.push(["بلد المنشأ", product.origin]);
+    if (product.usage) detailRows.push(["طريقة الاستخدام", product.usage]);
+    if (product.ingredients) detailRows.push(["المكونات", product.ingredients]);
+
+    modalDetails.innerHTML = detailRows.length
+      ? detailRows.map(([label, value]) => `
+          <div class="modal-detail-row">
+            <span class="modal-detail-label">${label}</span>
+            <span class="modal-detail-value">${value}</span>
+          </div>
+        `).join("")
+      : "";
     
     // زر الإضافة للسلة في المودال
     if (availableStock === 0) {
@@ -188,14 +215,34 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProducts();
   });
 
+  // === الترتيب حسب السعر ===
+  sortSelect.addEventListener("change", (e) => {
+    sortOption = e.target.value;
+    renderProducts();
+  });
+
+  // === فلترة العروض فقط ===
+  offersOnlyCheckbox.addEventListener("change", (e) => {
+    offersOnly = e.target.checked;
+    renderProducts();
+  });
+
   // === عرض المنتجات حسب الفلتر والبحث ===
   function renderProducts() {
     // 1. فلترة المنتجات
-    const filtered = products.filter(product => {
+    let filtered = products.filter(product => {
       const matchCat = (currentCategory === "all" || product.category === currentCategory);
       const matchSearch = (product.name.toLowerCase().includes(searchQuery) || product.description.toLowerCase().includes(searchQuery));
-      return matchCat && matchSearch;
+      const matchOffer = (!offersOnly || product.onSale === true);
+      return matchCat && matchSearch && matchOffer;
     });
+
+    // 1.5 ترتيب حسب السعر
+    if (sortOption === "price-asc") {
+      filtered = filtered.slice().sort((a, b) => a.price - b.price);
+    } else if (sortOption === "price-desc") {
+      filtered = filtered.slice().sort((a, b) => b.price - a.price);
+    }
 
     // 2. تحديث عدد المنتجات المعروضة
     if (searchQuery) {
@@ -208,7 +255,8 @@ document.addEventListener("DOMContentLoaded", () => {
           hair: "منتجات الشعر",
           nails: "الأظافر",
           skin: "العناية بالبشرة",
-          makeup: "المكياج",
+          deodorant: "مزيلات العرق",
+          vitamins: "الفيتامينات",
           tools: "أدوات الصالون",
           removal: "إزالة الشعر"
         };
@@ -246,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // تحديد وسيط العرض (صورة أو إيموجي)
         const mediaHtml = product.image 
-          ? `<img src="${product.image}" class="product-img" alt="${product.name}" />`
+          ? `<img src="${product.image}" class="product-img" alt="${product.name}" loading="lazy" />`
           : `<span class="product-emoji">${product.emoji}</span>`;
 
         const card = document.createElement("div");
@@ -262,7 +310,9 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="product-stock-status ${stockClass}">${stockText}</div>
             <p class="product-desc">${product.description}</p>
             <div class="product-footer">
-              <span class="product-price">${product.price} ₪</span>
+              <span class="product-price">
+                ${product.onSale ? `<span class="old-price">${product.oldPrice} ₪</span> ` : ""}${product.price} ₪
+              </span>
               <button class="add-to-cart-btn" data-id="${product.id}" aria-label="أضف للسلة" ${availableStock === 0 ? "disabled style='opacity: 0.5; cursor: not-allowed;'" : ""}>
                 ${availableStock === 0 ? "✕" : "+"}
               </button>
@@ -302,13 +352,110 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // === بناء كارت مصغّر للأقسام المميزة بالصفحة الرئيسية ===
+  function buildHighlightCard(product) {
+    const totalStock = productStocks[product.id] || 50;
+    const cartItem = cart.find(item => item.id === product.id);
+    const cartQty = cartItem ? cartItem.quantity : 0;
+    const availableStock = totalStock - cartQty;
+
+    const mediaHtml = product.image
+      ? `<img src="${product.image}" class="product-img" alt="${product.name}" loading="lazy" />`
+      : `<span class="product-emoji">${product.emoji}</span>`;
+
+    const priceHtml = product.onSale
+      ? `<span class="old-price">${product.oldPrice} ₪</span> ${product.price} ₪`
+      : `${product.price} ₪`;
+
+    const card = document.createElement("div");
+    card.className = "highlight-card";
+    card.innerHTML = `
+      <div class="product-emoji-wrap">
+        ${mediaHtml}
+        ${product.onSale ? `<span class="product-badge-offer">عرض 🏷️</span>` : ""}
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">${product.name}</h3>
+        <div class="product-footer">
+          <span class="product-price">${priceHtml}</span>
+          <button class="add-to-cart-btn" data-id="${product.id}" aria-label="أضف للسلة" ${availableStock === 0 ? "disabled style='opacity: 0.5; cursor: not-allowed;'" : ""}>
+            ${availableStock === 0 ? "✕" : "+"}
+          </button>
+        </div>
+      </div>
+    `;
+
+    card.addEventListener("click", (e) => {
+      if (!e.target.closest(".add-to-cart-btn")) {
+        openProductModal(product);
+      }
+    });
+
+    const addBtn = card.querySelector(".add-to-cart-btn");
+    addBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const totalStock2 = productStocks[product.id] || 50;
+      const cartItem2 = cart.find(item => item.id === product.id);
+      const cartQty2 = cartItem2 ? cartItem2.quantity : 0;
+      if (cartQty2 < totalStock2) {
+        addToCart(product.id);
+      } else {
+        showToast("نعتذر، تم الوصول للحد الأقصى للمخزون! ⚠️");
+      }
+    });
+
+    return card;
+  }
+
+  // === تعبئة أقسام الصفحة الرئيسية المميزة ===
+  function renderHighlights() {
+    const rows = [
+      { id: "bestseller-scroll", rowId: "row-bestseller", list: products.filter(p => p.bestseller) },
+      { id: "new-scroll", rowId: "row-new", list: products.filter(p => p.isNew) },
+      { id: "offer-scroll", rowId: "row-offer", list: products.filter(p => p.onSale) },
+      { id: "korean-scroll", rowId: "row-korean", list: products.filter(p => p.korean) }
+    ];
+
+    rows.forEach(({ id, rowId, list }) => {
+      const container = document.getElementById(id);
+      const rowEl = document.getElementById(rowId);
+      if (!container || !rowEl) return;
+
+      if (list.length === 0) {
+        rowEl.classList.add("hidden");
+        return;
+      }
+
+      container.innerHTML = "";
+      list.slice(0, 10).forEach(product => {
+        container.appendChild(buildHighlightCard(product));
+      });
+    });
+  }
+
+  // تحديث أعداد المنتجات في أزرار التصنيفات تلقائياً
+  function updateCategoryCounts() {
+    const categories = ["hair", "nails", "skin", "deodorant", "vitamins", "tools", "removal"];
+    const totalCountEl = document.getElementById("count-all");
+    if (totalCountEl) totalCountEl.textContent = products.length;
+
+    categories.forEach(cat => {
+      const countEl = document.getElementById(`count-${cat}`);
+      if (countEl) {
+        const count = products.filter(p => p.category === cat).length;
+        countEl.textContent = count;
+      }
+    });
+  }
+
   // ترجمة اسم التصنيف
   function getCategoryName(cat) {
     const names = {
       hair: "💇 شعر",
       nails: "💅 أظافر",
       skin: "🧖 بشرة",
-      makeup: "💄 مكياج",
+      deodorant: "🌿 مزيل عرق",
+      vitamins: "💊 فيتامينات",
       tools: "🪮 أدوات",
       removal: "🌸 إزالة شعر"
     };
@@ -426,6 +573,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // تحديث شبكة المنتجات لتعكس التغييرات في الكميات المتوفرة وأزرار الإضافة
     if (typeof renderProducts === "function") {
       renderProducts();
+    }
+    if (typeof renderHighlights === "function") {
+      renderHighlights();
     }
   }
 

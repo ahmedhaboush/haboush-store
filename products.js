@@ -1,518 +1,419 @@
-// قائمة المنتجات لموقع حبوش | HABOUSH
 const products = [
-  // ===== فئة الشعر (hair) =====
+  // ===== SKIN CARE - CLEANSERS & GELS =====
   {
-    id: "hair-1",
-    name: "صبغة شعر احترافية - ألوان متعددة",
-    description: "تركيبة غنية بالأصباغ والزيوت المغذية لتلوين احترافي وثبات يدوم طويلاً.",
-    price: 45,
-    category: "hair",
-    emoji: "🎨"
-  },
-  {
-    id: "hair-2",
-    name: "أوكسجين مطور (مؤكسد) 6% (20 Vol)",
-    description: "يُستخدم لصبغ درجات الألوان الطبيعية وتغطية الشيب بالكامل.",
-    price: 35,
-    category: "hair",
-    emoji: "🧪"
-  },
-  {
-    id: "hair-3",
-    name: "أوكسجين مطور (مؤكسد) 9% (30 Vol)",
-    description: "يُستخدم لتفتيح الشعر 2-3 درجات مع الحفاظ على حيوية الخصلات.",
-    price: 35,
-    category: "hair",
-    emoji: "🧪"
-  },
-  {
-    id: "hair-4",
-    name: "أوكسجين مطور (مؤكسد) 12% (40 Vol)",
-    description: "للتفتيح الأقصى وسحب اللون القوي، يُستخدم بحذر وبأيدي المحترفين.",
-    price: 40,
-    category: "hair",
-    emoji: "🧪"
-  },
-  {
-    id: "hair-5",
-    name: "بودرة تفتيح شعر زرقاء (سحب لون)",
-    description: "تفتيح سريع وفعال مع حماية خصلات الشعر من التلف والجفاف.",
-    price: 60,
-    category: "hair",
-    emoji: "❄️"
-  },
-  {
-    id: "hair-6",
-    name: "تونر تعديل لون الشعر المهني",
-    description: "لإزالة التدرجات النحاسية والصفراء غير المرغوب فيها بعد التفتيح.",
-    price: 50,
-    category: "hair",
-    emoji: "🧴"
-  },
-  {
-    id: "hair-7",
-    name: "ماسك مغذي للشعر بالكيراتين",
-    description: "ترطيب عميق وإعادة بناء الروابط التالفة للشعر المصبوغ والمعالج.",
-    price: 75,
-    category: "hair",
-    emoji: "🧴"
-  },
-  {
-    id: "hair-8",
-    name: "سيروم شعر واقي من الحرارة",
-    description: "طبقة حماية متكاملة ضد حرارة السشوار والمكواة حتى 230 درجة مئوية.",
-    price: 55,
-    category: "hair",
-    emoji: "💧"
-  },
-  {
-    id: "hair-9",
-    name: "زيت الأرغان الطبيعي للشعر",
-    description: "يمنح الشعر لمعاناً حريرياً ويقلل التطاير والتقصف بشكل ملحوظ.",
-    price: 80,
-    category: "hair",
-    emoji: "🍯"
-  },
-  {
-    id: "hair-10",
-    name: "أمبولات كيراتين مكثفة لعلاج التلف",
-    description: "علاج كيميائي مركز وسريع لتغذية بصيلات الشعر وإعادة الحيوية لها.",
-    price: 110,
-    category: "hair",
-    emoji: "💉"
-  },
-  {
-    id: "hair-11",
-    name: "شامبو حماية اللون للشعر المصبوغ",
-    description: "خالٍ من الكبريتات للمحافظة على درجة لون الصبغة لأطول فترة ممكنة.",
-    price: 45,
-    category: "hair",
-    emoji: "🧴"
-  },
-  {
-    id: "hair-12",
-    name: "بلسم ترطيب عميق لصالونات التجميل",
-    description: "يُسهل تسريح الشعر ويفك التشابك ويمنحه نعومة فائقة بعد الغسيل.",
-    price: 40,
-    category: "hair",
-    emoji: "🧴"
-  },
-  {
-    id: "hair-13",
-    name: "جل تثبيت شعر قوي المفعول",
-    description: "تثبيت يدوم 24 ساعة للتسريحات القصيرة والخاصة بدون ترك رواسب.",
+    id: "skin-001",
+    name: "جل الصبار للوجه - Magic Dream",
+    description: "جل الصبار الطبيعي 99% من Magic Dream — يرطب ويهدئ البشرة المتهيجة بلطف شديد. مثالي للاستخدام اليومي كمرطب خفيف أو بعد التعرض للشمس.",
     price: 25,
-    category: "hair",
-    emoji: "🧴"
+    category: "skin",
+    emoji: "🌿",
+    image: "assets/products/جل الصبار.png",
+    usage: "ضعي كمية صغيرة على البشرة النظيفة صباحاً ومساءً ودلّكي بحركات دائرية حتى الامتصاص.",
+    size: "250ml",
+    bestseller: true,
+    origin: "فلسطين"
   },
   {
-    id: "hair-14",
-    name: "واكس (شمع) لتصفيف الشعر ولمعانه",
-    description: "يمنح الشعر ملمساً طبيعياً وتحكماً مرناً بالتسريحة دون لمعان دهني.",
-    price: 30,
-    category: "hair",
-    emoji: "🍯"
+    id: "skin-002",
+    name: "جل تنظيف طبي - Bioderma Sebium",
+    description: "غسول طبي فعّال من Bioderma مخصص للبشرة الدهنية والمختلطة. يُزيل الزيوت الزائدة والشوائب دون تجفيف، مع الحفاظ على التوازن الطبيعي للبشرة.",
+    price: 55,
+    category: "skin",
+    emoji: "🧴",
+    image: "assets/products/Gemini_Generated_Image_rl5tgmrl5tgmrl5t.png",
+    usage: "رغّدي الجل مع الماء الفاتر على الوجه الرطب، ثم اشطفيه جيداً. يُستخدم مرة إلى مرتين يومياً.",
+    size: "200ml",
+    bestseller: true,
+    origin: "فرنسا"
   },
   {
-    id: "hair-15",
-    name: "رغوة (موس) لتكثيف الشعر ومنحه حجماً",
-    description: "تمنح الشعر الخفيف كثافة ومظهراً ممتلئاً يدوم طوال اليوم.",
-    price: 35,
-    category: "hair",
-    emoji: "🧼"
+    id: "skin-003",
+    name: "غسول بشرة جافة - Celenes Cloudberry",
+    description: "غسول رغوي لطيف من Celenes by Sweden مصنوع من ثمرة الكلاودبيري الاسكندنافية، مخصص للبشرة الجافة والحساسة. ينظف بعمق دون أن يسلب البشرة ترطيبها الطبيعي.",
+    price: 65,
+    category: "skin",
+    emoji: "🫧",
+    image: "assets/products/photo_2026-07-13_23-55-55.png",
+    usage: "اغسلي وجهك صباحاً ومساءً بماء فاتر، ثم استخدمي مرطباً مناسباً مباشرة بعد الغسل للحصول على أفضل النتائج.",
+    size: "250ml",
+    origin: "السويد",
+    korean: false
   },
   {
-    id: "hair-16",
-    name: "بخاخ تثبيت الشعر الاحترافي (سبراي)",
-    description: "تثبيت نهائي فائق القوة وجاف لمقاومة الرطوبة وحماية التسريحات المعقدة.",
-    price: 50,
-    category: "hair",
-    emoji: "💨"
+    id: "skin-004",
+    name: "غسول حرارة - Celenes Thermal Foaming",
+    description: "جل تنظيف رغوي بالمياه الحرارية من Celenes يمنح البشرة نقاءً عميقاً مع الشعور بالانتعاش. مناسب لجميع أنواع البشرة، يُزيل المكياج والأوساخ بلطف.",
+    price: 60,
+    category: "skin",
+    emoji: "💧",
+    image: "assets/products/الثاني.png",
+    usage: "ضعي كمية مناسبة على البشرة الرطبة، رغّدي ثم اشطفي جيداً بالماء الفاتر. استخدمي مرتين يومياً.",
+    size: "250ml",
+    origin: "السويد"
   },
   {
-    id: "hair-17",
-    name: "كريم فرد الشعر بالكيراتين البرازيلي",
-    description: "فرد بنسبة تصل إلى 95% يدوم لأشهر، مخصص للاستخدام المهني فقط.",
-    price: 150,
-    category: "hair",
-    emoji: "🧴"
+    id: "skin-005",
+    name: "غسول AHA + BHA - Celenes Peeling",
+    description: "غسول تقشير احترافي من Celenes يحتوي على حمض AHA 10% وحمض BHA 2% لإزالة الخلايا الميتة وتجديد البشرة. يُعيد الإشراق ويخفف آثار الحبوب.",
+    price: 70,
+    category: "skin",
+    emoji: "✨",
+    image: "assets/products/Gemini_Generated_Image_6q6xbt6q6xbt6q6x.png",
+    usage: "استخدمي مرة إلى مرتين في الأسبوع ليلاً فقط. ابدئي بمرة في الأسبوع إذا كانت بشرتك حساسة. تذكري واقي الشمس نهاراً.",
+    size: "30ml",
+    origin: "السويد"
   },
   {
-    id: "hair-18",
-    name: "علاج بوتوكس الشعر لترميم التلف",
-    description: "يعيد حيوية ألياف الشعر ويعبئ الفراغات التالفة للحصول على مظهر ممتلئ وصحي.",
-    price: 130,
-    category: "hair",
-    emoji: "🧴"
+    id: "skin-006",
+    name: "غسول فيتامين C - Celenes Sea Buckthorn",
+    description: "غسول غني بفيتامين C ومستخلص نبات Sea Buckthorn من Celenes. يُشرق البشرة ويُوحّد لونها مع التنظيف اليومي. تركيبة مضادة للأكسدة تحارب علامات الشيخوخة.",
+    price: 65,
+    category: "skin",
+    emoji: "🍊",
+    image: "assets/products/Gemini_Generated_Image_my0ydpmy0ydpmy0y.png",
+    usage: "استخدمي الغسول على البشرة الرطبة صباحاً ومساءً، ثم اشطفيه بالماء الفاتر. أكملي روتينك بسيروم فيتامين C للحصول على أفضل النتائج.",
+    size: "250ml",
+    origin: "السويد"
   },
 
-  // ===== فئة الأظافر (nails) =====
+  // ===== SKIN CARE - SERUMS & AMPOULES =====
   {
-    id: "nails-1",
-    name: "مجموعة طلاء أظافر (مناكير) احترافي",
-    description: "تشكيلة ألوان غنية وجذابة وسريعة الجفاف وتدوم طويلاً دون تشقق.",
-    price: 25,
-    category: "nails",
-    emoji: "💅"
+    id: "skin-007",
+    name: "سيروم هيالورونيك - Celenes Gojiberry",
+    description: "سيروم مركّز يجمع بين حمض الهيالورونيك 2% وثمرة الغوجي بيري من Celenes by Sweden. يرطب البشرة بعمق، يُقلل التجاعيد ويمنح البشرة نضارة شبابية ملحوظة.",
+    price: 85,
+    category: "skin",
+    emoji: "💎",
+    image: "assets/products/Gemini_Generated_Image_ut8qo5ut8qo5ut8q.png",
+    usage: "ضعي بضع قطرات على البشرة النظيفة قبل المرطب صباحاً ومساءً. انتظري دقيقتين قبل وضع المرطب.",
+    size: "30ml",
+    bestseller: true,
+    origin: "السويد"
   },
   {
-    id: "nails-2",
-    name: "جل بناء أظافر UV (Builder Gel)",
-    description: "لتمديد وتقوية الأظافر الطبيعية بمظهر طبيعي وقوة فائقة.",
-    price: 70,
-    category: "nails",
-    emoji: "💅"
-  },
-  {
-    id: "nails-3",
-    name: "بودرة ومونومر أكريليك للأظافر",
-    description: "المزيج المثالي لتركيب وبناء أظافر قوية تدوم لعدة أسابيع.",
+    id: "skin-008",
+    name: "سنتيلا أمبول - SKIN1004",
+    description: "تركيبة مركزة من مستخلص السنتيلا الآسيوية من مدغشقر (SKIN1004 Madagascar Centella Ampoule). تُهدئ التهيج والاحمرار، وترطب بعمق وتدعم تجديد خلايا البشرة. الأنسب للبشرة المجهدة والحساسة.",
     price: 95,
-    category: "nails",
-    emoji: "💅"
+    category: "skin",
+    emoji: "🌱",
+    image: "assets/products/skin1004_centella_luxury_1784722560110.jpg",
+    usage: "استخدمي الأمبول صباحاً ومساءً على بشرة نظيفة قبل المرطب. ولا تنسي واقي الشمس نهاراً.",
+    size: "100ml",
+    bestseller: true,
+    korean: true,
+    origin: "كوريا الجنوبية"
   },
   {
-    id: "nails-4",
-    name: "الطلاء الأساسي للأظافر (Base Coat)",
-    description: "لحماية الظفر الطبيعي وضمان التصاق ممتاز لطلاء الأظافر الملون.",
-    price: 30,
-    category: "nails",
-    emoji: "💅"
-  },
-  {
-    id: "nails-5",
-    name: "طلاء الختم واللمعان (Top Coat)",
-    description: "طبقة نهائية تمنح أظافرك لمعاناً زجاجياً وتحمي الألوان من البهتان.",
-    price: 35,
-    category: "nails",
-    emoji: "💅"
-  },
-  {
-    id: "nails-6",
-    name: "أسيتون نقي 100% لإزالة المناكير والجيل",
-    description: "يزيل طلاء الأظافر والجل والأكريليك بسرعة وبشكل فعال دون التسبب في الجفاف الزائد.",
-    price: 20,
-    category: "nails",
-    emoji: "🧪"
-  },
-  {
-    id: "nails-7",
-    name: "زيت مغذي ومرطب لجلد الأظافر",
-    description: "تركيبة فيتامينات لترطيب وتنعيم الجلد المحيط بالأظافر ومنع تشققه.",
-    price: 25,
-    category: "nails",
-    emoji: "🌱"
-  },
-  {
-    id: "nails-8",
-    name: "مجموعة مبارد أظافر احترافية متنوعة",
-    description: "لتشكيل وتنعيم وتلميع حواف الأظافر بلمسة صالونات التجميل.",
-    price: 15,
-    category: "nails",
-    emoji: "🛠️"
+    id: "skin-009",
+    name: "تونر جليكوليك - The Ordinary 7%",
+    description: "تونر تقشيري من The Ordinary بتركيز حمض الجليكوليك 7% عند pH 3.6. يُزيل الخلايا الميتة بلطف، يُخفف البقع الداكنة ويمنح البشرة ملمساً أنعم وأكثر إشراقاً مع الاستخدام المنتظم.",
+    price: 75,
+    category: "skin",
+    emoji: "🔬",
+    image: "assets/products/ordinary_glycolic_luxury_1784722477257.jpg",
+    usage: "ابدني باستخدامه مرتين أسبوعياً ليلاً. لا تنسي واقي الشمس صباحاً. غير مناسب للبشرة الحساسة جداً.",
+    size: "240ml",
+    origin: "كندا"
   },
 
-  // ===== فئة البشرة (skin) =====
+  // ===== SKIN CARE - MOISTURIZERS & CREAMS =====
   {
-    id: "skin-1",
-    name: "مرطب الوجه العميق للبشرة الجافة",
-    description: "يعيد التوازن الطبيعي للرطوبة ويحمي البشرة من الجفاف والتعب.",
-    price: 50,
-    category: "skin",
-    emoji: "🧴"
-  },
-  {
-    id: "skin-2",
-    name: "سيروم فيتامين C للنضارة واللمعان",
-    description: "يفتح البشرة ويوحد لونها ويخفف البقع الداكنة والتجاعيد الخفيفة.",
-    price: 85,
-    category: "skin",
-    emoji: "🍊"
-  },
-  {
-    id: "skin-3",
-    name: "واقي شمس احترافي SPF 50+",
-    description: "حماية قصوى للبشرة من الأشعة فوق البنفسجية دون ترك أثر دهني أبيض.",
+    id: "skin-010",
+    name: "كريم مرطب فيتامين C - Celenes",
+    description: "كريم موازن للبشرة المختلطة والدهنية من Celenes غني بفيتامين C. يُرطب دون أن يُثقل، يُوحّد لون البشرة ويُقلل التصبغات مع الاستخدام المنتظم. قوام خفيف سريع الامتصاص.",
     price: 70,
     category: "skin",
-    emoji: "☀️"
+    emoji: "🍋",
+    image: "assets/products/كريم مرطب.png",
+    usage: "ضعي كمية مناسبة على الوجه والرقبة صباحاً ومساءً بعد التنظيف. يمكن استخدامه كقاعدة تحت واقي الشمس.",
+    size: "50ml",
+    origin: "السويد"
   },
   {
-    id: "skin-4",
-    name: "تونر منقي ومنعش للبشرة",
-    description: "يضيق المسام ويوازن حموضة البشرة ويحضرها لاستقبال مرطبات العناية.",
-    price: 45,
-    category: "skin",
-    emoji: "🧪"
-  },
-  {
-    id: "skin-5",
-    name: "غسول للوجه مطهر ومنظف للمسام",
-    description: "يزيل الدهون الزائدة والأوساخ وبقايا المكياج بعمق ولطف.",
+    id: "skin-011",
+    name: "كريم يوريا 10% - Carbamide",
+    description: "كريم طبي مُرطب عالي الفعالية يحتوي على 10% يوريا (Carbamide). يُعالج الجفاف الشديد والبشرة المتشققة، يُرطب بعمق ويُحسّن نعومة الجلد بشكل ملحوظ.",
     price: 40,
     category: "skin",
-    emoji: "🧼"
+    emoji: "💊",
+    image: "assets/products/Gemini_Generated_Image_x8jlp8x8jlp8x8jl.png",
+    usage: "ضعي الكريم على المناطق الجافة مرة إلى مرتين يومياً. مثالي للكعبين واليدين والمناطق الخشنة.",
+    size: "20g",
+    origin: "الأردن"
   },
   {
-    id: "skin-6",
-    name: "ماسك الطين المعدني المنظف للبشرة",
-    description: "لإزالة السموم وتقشير الخلايا الميتة وتنظيف الرؤوس السوداء.",
+    id: "skin-012",
+    name: "كريم بانثينول - Hepta Panthenol",
+    description: "كريم Hepta Panthenol المرطب العميق المحتوي على فيتامين B5 (بانثينول). يُسرّع شفاء الجلد، يُهدئ التهيجات ويمنح ترطيباً طويل الأمد. مناسب لجميع أنواع البشرة بما فيها الحساسة.",
     price: 35,
     category: "skin",
-    emoji: "💆"
+    emoji: "💆",
+    image: "assets/products/Gemini_Generated_Image_ngyob6ngyob6ngyo.png",
+    usage: "ضعي كمية مناسبة على المنطقة المستهدفة مرتين إلى ثلاث مرات يومياً. مناسب للاستخدام بعد الإجراءات التجميلية.",
+    size: "50g",
+    origin: "فلسطين"
   },
   {
-    id: "skin-7",
-    name: "كريم العناية بمحيط العين للحد من الهالات",
-    description: "تركيبة خفيفة وسريعة الامتصاص لشد الجفون وتقليل الهالات والانتفاخات.",
-    price: 65,
-    category: "skin",
-    emoji: "👁️"
-  },
-  {
-    id: "skin-8",
-    name: "مزيل مكياج احترافي ثنائي الطور (ميسيلار)",
-    description: "يزيل المكياج المقاوم للماء بلطف وأمان على العينين والشفاه.",
-    price: 30,
-    category: "skin",
-    emoji: "💧"
-  },
-
-  // ===== فئة المكياج (makeup) =====
-  {
-    id: "makeup-1",
-    name: "فاونديشن احترافي سائل (كريم أساس)",
-    description: "تغطية كاملة وقابلة للبناء مع مظهر نهائي مطفأ خالي من اللمعان والعيوب.",
-    price: 90,
-    category: "makeup",
-    emoji: "🧴"
-  },
-  {
-    id: "makeup-2",
-    name: "كونسيلر لتغطية الهالات والعيوب",
-    description: "خفيف الوزن، صبغة قوية وثبات عالي لا يتكتل في خطوط العين الدقيقة.",
-    price: 55,
-    category: "makeup",
-    emoji: "✏️"
-  },
-  {
-    id: "makeup-3",
-    name: "بودرة تثبيت شفافة وسائبة (Loose Powder)",
-    description: "تثبت المكياج طوال اليوم وتخفي المسام واللمعان الزائد للحصول على إطلالة مخملية.",
-    price: 60,
-    category: "makeup",
-    emoji: "💨"
-  },
-  {
-    id: "makeup-4",
-    name: "باليت كونتور وهايلايتر لتحديد الوجه",
-    description: "درجات ألوان ممتازة لتحديد الملامح وإبراز عظمتي الخدين بلمعان ذهبي.",
-    price: 85,
-    category: "makeup",
-    emoji: "🎨"
-  },
-  {
-    id: "makeup-5",
-    name: "كحل عيون أسود فائق السواد ومقاوم للماء",
-    description: "تحديد دقيق وسلس للعينين بثبات عالي طوال اليوم دون أن يسيل.",
-    price: 35,
-    category: "makeup",
-    emoji: "✏️"
-  },
-  {
-    id: "makeup-6",
-    name: "ماسكارا لتطويل وتكثيف الرموش",
-    description: "تمنح رموشك طولاً خيالياً وحجماً مضاعفاً بدون كتل أو التصاق.",
-    price: 45,
-    category: "makeup",
-    emoji: "👁️"
-  },
-  {
-    id: "makeup-7",
-    name: "أحمر شفاه مطفأ (روج) - تشكيلة ألوان",
-    description: "ثبات رائع يمتد لساعات، لا يجفف الشفاه ويمنحها لوناً مخملياً غنياً.",
-    price: 40,
-    category: "makeup",
-    emoji: "💄"
-  },
-  {
-    id: "makeup-8",
-    name: "بلاشر (أحمر خدود) بودرة مضغوطة",
-    description: "يمنح الخدود توهجاً طبيعياً وحيوية لافتة بفضل تدرجاته الحريرية الناعمة.",
-    price: 45,
-    category: "makeup",
-    emoji: "🌸"
-  },
-  {
-    id: "makeup-9",
-    name: "باليت ظل عيون (آيشادو) ألوان دافئة",
-    description: "تشكيلة رائعة من الألوان المطفأة واللامعة ذات الصبغة القوية والدمج السهل.",
-    price: 110,
-    category: "makeup",
-    emoji: "🎨"
-  },
-  {
-    id: "makeup-10",
-    name: "برايمر تحضير البشرة وتصغير المسام",
-    description: "يقوم بتنعيم البشرة وتحضيرها للمكياج لتثبيته ومنع أكسدته وتغير لونه.",
-    price: 65,
-    category: "makeup",
-    emoji: "🧴"
-  },
-  {
-    id: "makeup-11",
-    name: "مجموعة رموش صناعية كاملة وناعمة",
-    description: "رموش بمظهر طبيعي وجذاب قابلة لإعادة الاستخدام مع لمسة صالونات ناعمة.",
-    price: 25,
-    category: "makeup",
-    emoji: "👁️"
-  },
-  {
-    id: "makeup-12",
-    name: "بخاخ تثبيت المكياج النهائي (Setting Spray)",
-    description: "يحافظ على نضارة وتماسك المكياج ضد الحرارة والعرق لـ 16 ساعة متواصلة.",
-    price: 55,
-    category: "makeup",
-    emoji: "💨"
-  },
-
-  // ===== فئة أدوات الصالون (tools) =====
-  {
-    id: "tools-1",
-    name: "سشوار شعر صالونات احترافي (2200 واط)",
-    description: "محرك قوي ومقاوم للحرارة لتجفيف وتصفيف فائق السرعة وبأعلى كفاءة.",
-    price: 280,
-    category: "tools",
-    emoji: "💨"
-  },
-  {
-    id: "tools-2",
-    name: "مكواة شعر سيراميك احترافية لصالونات التجميل",
-    description: "درجات حرارة تصل لـ 230 درجة مئوية لفرد مثالي وسلس يدوم طويلاً للشعر الكثيف.",
-    price: 320,
-    category: "tools",
-    emoji: "🔌"
-  },
-  {
-    id: "tools-3",
-    name: "جهاز تجعيد الشعر الحراري (كيرلي)",
-    description: "احصلي على تموجات شعر لافتة وحيوية بسهولة وأمان وبدرجات حرارة قابلة للضبط.",
-    price: 190,
-    category: "tools",
-    emoji: "🔌"
-  },
-  {
-    id: "tools-4",
-    name: "مقص شعر احترافي مسنن وقاطع",
-    description: "فولاذ مقاوم للصدأ، حاد جداً لتوفير قصة شعر دقيقة وسلسة دون تقصف الأطراف.",
-    price: 90,
-    category: "tools",
-    emoji: "✂️"
-  },
-  {
-    id: "tools-5",
-    name: "فرشاة تصفيف شعر حرارية مستديرة",
-    description: "لتصفيف وتجفيف الشعر مع السشوار وتوفير حجم إضافي رائع خالي من التشابك.",
-    price: 30,
-    category: "tools",
-    emoji: "🪮"
-  },
-  {
-    id: "tools-6",
-    name: "مجموعة ملاقط (كلبسات) تقسيم الشعر",
-    description: "ملاقط قوية لتسهيل العمل وتثبيت أجزاء الشعر أثناء الصبغ أو القص والكي.",
-    price: 15,
-    category: "tools",
-    emoji: "📌"
-  },
-  {
-    id: "tools-7",
-    name: "طاسة خلط صبغة الشعر المتينة",
-    description: "طاسة بلاستيكية مدرجة لخلط دقيق للصبغات ومواد سحب اللون وسهلة التنظيف.",
-    price: 10,
-    category: "tools",
-    emoji: "🥣"
-  },
-  {
-    id: "tools-8",
-    name: "فرشاة صبغ وتوزيع لون احترافية",
-    description: "شعر ناعم ومقاوم للمواد الكيميائية لتوزيع مثالي ومريح للصبغة على الخصلات.",
-    price: 8,
-    category: "tools",
-    emoji: "🖌️"
-  },
-  {
-    id: "tools-9",
-    name: "قفازات حماية لصالونات التجميل (نترات سوداء)",
-    description: "علبة تحتوي على 100 قفاز أسود مرن ومقاوم للمواد الكيميائية لحماية اليدين.",
-    price: 45,
-    category: "tools",
-    emoji: "🧤"
-  },
-  {
-    id: "tools-10",
-    name: "كيب صالون (عباءة حماية الملابس)",
-    description: "قماش خفيف وعازل للمياه والشعر المتساقط لحماية ملابس العملاء بكفاءة.",
-    price: 35,
-    category: "tools",
-    emoji: "🥋"
-  },
-  {
-    id: "tools-11",
-    name: "ورق سحب لون فضي (فويل شعر)",
-    description: "رول ألومنيوم احترافي عالي الجودة لعزل وتثبيت الخصلات المفتحة.",
-    price: 55,
-    category: "tools",
-    emoji: "🗞️"
-  },
-  {
-    id: "tools-12",
-    name: "رول ورق رقبة صحي لصالونات التجميل",
-    description: "رول شريطي يوضع على رقبة العميل قبل وضع الكيب لضمان حماية قصوى ونظافة صحية.",
-    price: 25,
-    category: "tools",
-    emoji: "🧻"
-  },
-  {
-    id: "tools-13",
-    name: "مصباح UV/LED لتجفيف وبناء الأظافر",
-    description: "قوة 48 واط مع مؤقت لتجفيف مثالي وسريع لجميع أنواع طلاء أظافر الجل.",
-    price: 140,
-    category: "tools",
-    emoji: "💡"
-  },
-
-  // ===== فئة إزالة الشعر (removal) =====
-  {
-    id: "removal-1",
-    name: "جهاز تسخين شمع إزالة الشعر الاحترافي",
-    description: "تسخين سريع وتحكم تلقائي بالحرارة لتذويب شمع العسل والخرز بأمان.",
+    id: "skin-013",
+    name: "جل مرطب هيدروبوست - Neutrogena",
+    description: "جل مائي مبتكر من Neutrogena Hydro Boost بحمض الهيالورونيك يرطب البشرة لـ 24 ساعة. قوام خفيف غير دهني، سريع الامتصاص، ويمنح البشرة مظهراً صحياً ومتوهجاً طوال اليوم.",
     price: 80,
-    category: "removal",
-    emoji: "🔌"
+    category: "skin",
+    emoji: "💧",
+    image: "assets/products/neutrogena_hydro_luxury_1784722609542.jpg",
+    usage: "استخدمي الجل يومياً صباحاً ومساءً بعد التنظيف. ضعي واقي الشمس نهاراً للحفاظ على نضارة البشرة.",
+    size: "50g",
+    bestseller: true,
+    origin: "USA"
   },
   {
-    id: "removal-2",
-    name: "أكياس خرز شمع إزالة الشعر (بابونج / عسل)",
-    description: "شمع صلب يذوب ويزيل أقصر الشعيرات بلطف ومثالي للبشرة الحساسة.",
+    id: "skin-014",
+    name: "كريم سكينوريش - Skinorich",
+    description: "كريم متقدم من Skinorich يجمع بين حمض الأزيليك 19% وحمض الكوجيك 2% والبانثينول 5%. يعمل على توحيد لون البشرة، تخفيف التصبغات وتنظيف المسام بعمق.",
+    price: 60,
+    category: "skin",
+    emoji: "⚗️",
+    image: "assets/products/skinorich_luxury_1784722577043.jpg",
+    usage: "استخدمي الكريم بانتظام على بشرة نظيفة نهاراً. استخدمي واقي الشمس لأفضل النتائج.",
+    size: "30g",
+    origin: "الأردن"
+  },
+
+  // ===== SKIN CARE - ACNE TREATMENT =====
+  {
+    id: "skin-015",
+    name: "كريم علاج حب الشباب - Acretin 0.025%",
+    description: "كريم طبي من Jampoom Pharma يحتوي على Tretinoin 0.025% لعلاج حب الشباب المعتدل وتجديد خلايا البشرة. يُقلل الحبوب والرؤوس السوداء ويُحسن ملمس البشرة بالاستخدام المنتظم.",
     price: 45,
-    category: "removal",
-    emoji: "🍯"
+    category: "skin",
+    emoji: "💉",
+    image: "assets/products/لعلاج حب الشباب.png",
+    usage: "يُستخدم ليلاً فقط على بشرة نظيفة وجافة. ابدئي بكمية صغيرة بحجم حبة البازلاء على كامل الوجه، وضعي واقي الشمس يومياً.",
+    size: "30g",
+    origin: "الأردن"
   },
   {
-    id: "removal-3",
-    name: "شرائح شمع جاهزة لإزالة الشعر بسرعة",
-    description: "شرائح جاهزة للاستخدام الفوري ومناسبة لجميع مناطق الجسم لراحة قصوى وسرعة.",
-    price: 25,
-    category: "removal",
-    emoji: "🩹"
+    id: "skin-016",
+    name: "كريم علاج حب الشباب - Acretin 0.05%",
+    description: "نسخة أقوى من Acretin بتركيز Tretinoin 0.05% لعلاج حب الشباب الحديث وتجديد خلايا البشرة بشكل أسرع. يُقلل التصبغات والبقع الداكنة ويُوحد لون البشرة.",
+    price: 48,
+    category: "skin",
+    emoji: "💊",
+    image: "assets/products/Gemini_Generated_Image_tk4id1tk4id1tk4i.png",
+    usage: "يُستخدم ليلاً فقط على بشرة نظيفة وجافة. ابدئي بمرة كل يومين وزيدي تدريجياً. قد يسبب جفافاً في البداية وهذا طبيعي. استخدمي واقي الشمس يومياً.",
+    size: "30g",
+    origin: "الأردن"
   },
   {
-    id: "removal-4",
-    name: "زيت ملطف ومهدئ للبشرة بعد الشمع",
-    description: "يهدئ الاحمرار ويزيل بقايا الشمع اللاصقة بفضل تركيبته الملطفة بالبابونج.",
-    price: 35,
-    category: "removal",
-    emoji: "🧴"
+    id: "skin-017",
+    name: "جل علاج حب الشباب - Adapalene 0.1%",
+    description: "جل طبي بتركيبة Adapalene 0.1% فعّالة لعلاج حب الشباب الالتهابي وغير الالتهابي. يُنظم تجدد خلايا البشرة، يُقلل الاحمرار ويمنع ظهور حبوب جديدة.",
+    price: 42,
+    category: "skin",
+    emoji: "🧫",
+    image: "assets/products/Gemini_Generated_Image_1sui3n1sui3n1sui.png",
+    usage: "ضعي طبقة رقيقة على المناطق المصابة ليلاً بعد التنظيف. ابدئي بمرة كل يومين وزيدي تدريجياً حسب تحمّل البشرة.",
+    size: "30g",
+    origin: "الأردن"
+  },
+
+  // ===== SKIN CARE - SCRUBS =====
+  {
+    id: "skin-018",
+    name: "مقشر للوجه - Neutrogena Clear & Defend",
+    description: "مقشر طبي من Neutrogena يحتوي على جزيئات تقشير دقيقة تزيل خلايا الجلد الميتة وتنظف المسام بعمق. يُخفف الحبوب ويمنح البشرة نضارة فورية.",
+    price: 50,
+    category: "skin",
+    emoji: "🫧",
+    image: "assets/products/مقشر للوجه جديد.png",
+    usage: "ضعي كمية مناسبة على البشرة الرطبة ودلّكي بحركات دائرية لطيفة لمدة دقيقة، ثم اشطفي جيداً. استخدمي مرتين في الأسبوع.",
+    size: "150ml",
+    origin: "USA"
+  },
+
+  // ===== SKIN CARE - SOAPS =====
+  {
+    id: "skin-019",
+    name: "صابون طبي - Fitt-Bar Medicated",
+    description: "صابون طبي معتمد من Fitt-Bar يحتوي على مكوّنات فعّالة تُقلل من الحبوب وتُنظف البشرة بعمق. مناسب للبشرة الدهنية والمختلطة ومناطق ظهر حب الشباب.",
+    price: 18,
+    category: "skin",
+    emoji: "🧼",
+    image: "assets/products/Gemini_Generated_Image_ynesy1ynesy1ynes.png",
+    usage: "استخدمي الصابون مرتين يومياً على البشرة الرطبة مع الماء الدافئ، ثم اشطفي جيداً. احرصي على ترطيب البشرة بعد كل غسلة.",
+    size: "100g",
+    origin: "فلسطين"
+  },
+
+  // ===== SKIN CARE - SUNSCREENS =====
+  {
+    id: "skin-020",
+    name: "واقي شمس SPF 50+ - Dermactive Acti Solaire",
+    description: "كريم واقٍ من الشمس ذائب القوام من Dermactive بعامل حماية SPF 50+ UVA/UVB. قوام حليبي ناعم يمتص سريعاً دون أثر أبيض، مناسب للاستخدام اليومي على الوجه والجسم.",
+    price: 55,
+    category: "skin",
+    emoji: "☀️",
+    image: "assets/products/Gemini_Generated_Image_j526dmj526dmj526.png",
+    usage: "ضعي كمية سخية على الوجه والمناطق المكشوفة قبل 15 دقيقة من التعرض للشمس. أعيدي الوضع كل ساعتين.",
+    size: "50ml",
+    origin: "لبنان"
+  },
+  {
+    id: "skin-021",
+    name: "واقي شمس سائل - Celenes SPF 50+",
+    description: "سائل واقٍ خفيف الوزن من Celenes by Sweden بعامل حماية SPF 50+ UVA/UVB مع مضادات أكسدة طبيعية. مناسب للبشرة الدهنية والمختلطة، يمنح حماية قصوى مع ملمس متواضع جداً.",
+    price: 65,
+    category: "skin",
+    emoji: "🌤️",
+    image: "assets/products/Gemini_Generated_Image_jv90u3jv90u3jv90.png",
+    usage: "ضعي الواقي قبل 15 دقيقة من التعرض للشمس. أعيدي الوضع كل ساعتين أو بعد السباحة والتعرق.",
+    size: "50ml",
+    bestseller: true,
+    origin: "السويد"
+  },
+  {
+    id: "skin-022",
+    name: "واقي شمس بيودرما - Bioderma Photoderm SPF 50+",
+    description: "واقي شمس مائي الملمس من Bioderma Photoderm Aquafluide بعامل حماية SPF 50+ UVA/UVB. تركيبة خفيفة جداً كالماء، مناسبة للبشرة الحساسة، مقاوم للعرق والماء.",
+    price: 85,
+    category: "skin",
+    emoji: "🌊",
+    image: "assets/products/Gemini_Generated_Image_6ef4k66ef4k66ef4.png",
+    usage: "ضعي كمية سخية قبل 20 دقيقة من التعرض للشمس. أعيدي الوضع بعد كل تعرض للماء أو بعد ساعتين.",
+    size: "40ml",
+    origin: "فرنسا"
+  },
+  {
+    id: "skin-023",
+    name: "واقي شمس لاروش - La Roche-Posay Anthelios SPF 50+",
+    description: "واقي شمس خفيف الوزن من La Roche-Posay Anthelios UVMune 400 بتقنية حماية من الأشعة UVA Ultra-Longs. مقاوم للماء والعرق، مناسب للبشرة الحساسة، خالٍ من العطور.",
+    price: 90,
+    category: "skin",
+    emoji: "🛡️",
+    image: "assets/products/laroche_posay_luxury_1784722437169.jpg",
+    usage: "ضعي واقي الشمس قبل التعرض للشمس بـ 20 دقيقة. أعيدي الوضع كل ساعتين أو بعد السباحة. حتى لو كنتِ في مظلة فلا تستغني عنه!",
+    size: "50ml",
+    bestseller: true,
+    origin: "فرنسا"
+  },
+  {
+    id: "skin-024",
+    name: "واقي شمس فيتامين C SPF 50",
+    description: "واقي شمس مرطب بتركيبة فيتامين C من Hydrating Sunscreen Fluid بعامل حماية SPF 50 UVA/UVB. يرطب البشرة ويحميها في آنٍ واحد، لا يترك أثراً دهنياً ولا يسدّ المسام، ومختبَر جلدياً.",
+    price: 50,
+    category: "skin",
+    emoji: "🍊",
+    image: "assets/products/Gemini_Generated_Image_pojqlwpojqlwpojq.png",
+    usage: "ضعي واقي الشمس قبل التعرض للشمس بـ 15 دقيقة وأعيدي وضعه كل ساعتين. خالٍ من البارابين، مناسب لجميع أنواع البشرة.",
+    size: "50ml",
+    origin: "إسرائيل"
+  },
+
+  // ===== VITAMINS & SUPPLEMENTS =====
+  {
+    id: "vit-001",
+    name: "كيو تن 100mg - Limitless CoQ10",
+    description: "مكمل غذائي راقٍ من Limitless Naturals يحتوي على CoQ10 100mg مع السيلينيوم وفيتامين E. يدعم صحة القلب، ينشط إنتاج الطاقة الخلوية، ويعمل كمضاد أكسدة قوي يحارب الشيخوخة المبكرة.",
+    price: 75,
+    category: "vitamins",
+    emoji: "❤️",
+    image: "assets/products/فيتامين1.png",
+    usage: "تناولي كبسولة واحدة يومياً مع وجبة دسمة للحصول على أفضل امتصاص.",
+    size: "30 كبسولة هلامية",
+    origin: "الأردن"
+  },
+  {
+    id: "vit-002",
+    name: "فيتامينات للمرأة - Limitless Woman Max",
+    description: "مكمل غذائي نسائي شامل من Limitless Naturals يحتوي على 26 عنصراً أساسياً من الفيتامينات والمعادن. يُحافظ على الصحة العامة، يعزز المظهر الخارجي، ويدعم الطاقة اليومية للمرأة.",
+    price: 65,
+    category: "vitamins",
+    emoji: "👩",
+    image: "assets/products/فيتامين5.png",
+    usage: "تناولي قرصاً واحداً يومياً مع الوجبة.",
+    size: "30 قرص",
+    bestseller: true,
+    origin: "الأردن"
+  },
+  {
+    id: "vit-003",
+    name: "فيتامينات متعددة - Limitless Man Max",
+    description: "مكمل غذائي متكامل من Limitless Naturals للرجال يحتوي على 27 فيتامين ومعدن أساسي. يساعد في الحفاظ على الصحة والحيوية والطاقة اليومية.",
+    price: 60,
+    category: "vitamins",
+    emoji: "💪",
+    image: "assets/products/فيتامين3.png",
+    usage: "تناول قرصاً واحداً يومياً مع الوجبة.",
+    size: "30 قرص",
+    origin: "الأردن"
+  },
+  {
+    id: "vit-004",
+    name: "فيتامينات للرجال - Limitless Man 90 كبسولة",
+    description: "مكمل غذائي يومي من Limitless Naturals للرجال يحتوي على 20 عنصراً من الفيتامينات والمعادن، بتغطية 90 يوماً. يدعم صحة الدماغ والطاقة والأداء اليومي.",
+    price: 85,
+    category: "vitamins",
+    emoji: "🧠",
+    image: "assets/products/فيتامين4.png",
+    usage: "تناول كبسولة واحدة يومياً مع الوجبة.",
+    size: "90 كبسولة",
+    origin: "الأردن"
+  },
+  {
+    id: "vit-005",
+    name: "بور ماكس للرجال - Limitless Power Max",
+    description: "مكمل غذائي خاص بالرجال من Limitless Naturals يحتوي على مزيج طبيعي من 3 مستخلصات عشبية قوية مع الزنك. يدعم مستويات الطاقة الطبيعية ويعزز الحيوية.",
+    price: 80,
+    category: "vitamins",
+    emoji: "⚡",
+    image: "assets/products/فيتامين2.png",
+    usage: "تناول قرصاً واحداً يومياً مع وجبة.",
+    size: "30 قرص",
+    origin: "الأردن"
+  },
+  {
+    id: "vit-006",
+    name: "فيتامين D3 50,000 وحدة - NOW",
+    description: "فيتامين D3 عالي القوة من NOW Foods بجرعة 50,000 وحدة دولية. يدعم صحة العظام والمناعة، يحافظ على صحة الأسنان ويعزز قوة العضلات. غير معدّل وراثياً (Non-GMO).",
+    price: 55,
+    category: "vitamins",
+    emoji: "🦴",
+    image: "assets/products/فيتامين6.png",
+    usage: "تناولي كبسولة هلامية واحدة مرة في الأسبوع أو حسب توصية الطبيب. لا تتجاوزي الجرعة الموصى بها دون استشارة طبية.",
+    size: "50 كبسولة هلامية",
+    origin: "USA"
+  },
+  {
+    id: "vit-007",
+    name: "C زنك - فيتامين C + زنك",
+    description: "مكمل غذائي يجمع بين فيتامين C 250mg والزنك 30mg في كبسولة واحدة. يدعم مقاومة الجهاز المناعي، يساعد في الشفاء السريع من نزلات البرد ويحمي الخلايا من الأكسدة.",
+    price: 30,
+    category: "vitamins",
+    emoji: "🛡️",
+    image: "assets/products/فيتامين7.png",
+    usage: "تناولي كبسولة واحدة يومياً مع الوجبة. مناسب للوقاية من نزلات البرد والإنفلونزا خاصة في فصل الشتاء.",
+    size: "30 كبسولة",
+    origin: "فلسطين"
+  },
+
+  // ===== HAIR CARE =====
+  {
+    id: "hair-001",
+    name: "كريم كيراتين 2in1 - Elone",
+    description: "كريم العناية المتكاملة من Elone بتركيبة كيراتين متحلل. يُصلح الشعر التالف والمتقصف من الجذور حتى الأطراف، يرطب بعمق ويمنح نعومة حريرية. خالٍ من الكحول والبارابين، مناسب لجميع أنواع الشعر.",
+    price: 55,
+    category: "hair",
+    emoji: "💇",
+    image: "assets/products/Gemini_Generated_Image_kbrdbvkbrdbvkbrd.png",
+    usage: "لأفضل النتائج، استخدمي الكريم بانتظام بعد غسل الشعر مع التركيز على الأطراف. العناية المستمرة سر شعر صحي وجميل!",
+    size: "30g",
+    bestseller: true,
+    origin: "الأردن"
   }
 ];
+
+// Export for use in other scripts
+if (typeof module !== 'undefined') {
+  module.exports = { products };
+}

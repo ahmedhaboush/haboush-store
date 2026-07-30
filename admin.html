@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة تحكم HABOUSH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<style>
+  :root{
+    --gold:#c9a227;
+    --gold-bright:#e6c65c;
+    --black:#0c0c0d;
+    --panel:#161616;
+    --panel-2:#1e1e1e;
+    --line:#2c2a24;
+    --text:#f2ece0;
+    --muted:#a8a196;
+    --danger:#c0453b;
+    --ok:#3f7a4e;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--black);
+    color:var(--text);
+    font-family:'Tajawal',sans-serif;
+    min-height:100vh;
+  }
+  h1,h2,h3,.brand{font-family:'Cairo',sans-serif;}
+  .brand{
+    color:var(--gold-bright);
+    letter-spacing:1px;
+  }
+  /* ---------- Login ---------- */
+  #loginScreen{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(201,162,39,0.08), transparent 60%),
+      var(--black);
+  }
+  .login-box{
+    width:min(380px, 90vw);
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:36px 30px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+  .login-box h1{
+    font-size:22px;
+    margin:0 0 4px;
+    text-align:center;
+  }
+  .login-box p{
+    color:var(--muted);
+    text-align:center;
+    font-size:13px;
+    margin:0 0 24px;
+  }
+  label{
+    display:block;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+  input, select, textarea{
+    width:100%;
+    background:var(--black);
+    border:1px solid var(--line);
+    color:var(--text);
+    padding:11px 12px;
+    border-radius:8px;
+    font-family:inherit;
+    font-size:14px;
+    margin-bottom:16px;
+    outline:none;
+    transition:border-color .15s;
+  }
+  input:focus, select:focus, textarea:focus{border-color:var(--gold);}
+  textarea{resize:vertical; min-height:70px;}
+  button{
+    font-family:inherit;
+    cursor:pointer;
+    border:none;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:700;
+    padding:12px 18px;
+    transition:transform .1s, opacity .15s;
+  }
+  button:active{transform:scale(0.98);}
+  .btn-gold{
+    background:linear-gradient(135deg, var(--gold-bright), var(--gold));
+    color:#1a1400;
+    width:100%;
+  }
+  .btn-gold:hover{opacity:.92;}
+  .error-msg{
+    color:var(--danger);
+    font-size:13px;
+    margin:-8px 0 14px;
+    min-height:16px;
+  }
+  /* ---------- App shell ---------- */
+  #app{display:none;}
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 28px;
+    border-bottom:1px solid var(--line);
+    background:var(--panel);
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+  header .brand{font-size:20px;}
+  header .who{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .btn-ghost{
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--muted);
+    padding:8px 14px;
+    font-weight:500;
+  }
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold-bright);}
+  main{
+    max-width:1100px;
+    margin:0 auto;
+    padding:30px 24px 80px;
+  }
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:26px;
+    margin-bottom:28px;
+  }
+  .card h2{
+    margin:0 0 20px;
+    font-size:17px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .card h2::before{
+    content:"";
+    width:5px;
+    height:18px;
+    background:var(--gold);
+    border-radius:3px;
+    display:inline-block;
+  }
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0 16px;
+  }
+  .grid3{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:0 16px;
+  }
+  @media (max-width:640px){
+    .grid2, .grid3{grid-template-columns:1fr;}
+  }
+  .checks{
+    display:flex;
+    gap:24px;
+    margin-bottom:16px;
+  }
+  .check-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    color:var(--text);
+  }
+  .check-item input{width:auto; margin:0;}
+  .img-preview{
+    width:100%;
+    height:140px;
+    border:1px dashed var(--line);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:16px;
+    overflow:hidden;
+    background:var(--black);
+  }
+  .img-preview img{width:100%; height:100%; object-fit:cover;}
+  .form-actions{
+    display:flex;
+    gap:10px;
+    align-items:center;
+  }
+  .form-status{
+    font-size:13px;
+    color:var(--muted);
+  }
+  /* ---------- Table ---------- */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+  }
+  th{
+    text-align:right;
+    color:var(--muted);
+    font-weight:500;
+    padding:10px 8px;
+    border-bottom:1px solid var(--line);
+    font-size:12px;
+  }
+  td{
+    padding:10px 8px;
+    border-bottom:1px solid var(--line);
+    vertical-align:middle;
+  }
+  tr:hover td{background:rgba(201,162,39,0.04);}
+  .thumb{
+    width:42px; height:42px;
+    border-radius:6px;
+    object-fit:cover;
+    background:var(--black);
+    border:1px solid var(--line);
+  }
+  .badge{
+    display:inline-block;
+    padding:3px 9px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:700;
+  }
+  .badge-gold{background:rgba(201,162,39,0.15); color:var(--gold-bright);}
+  .row-actions{display:flex; gap:6px;}
+  .row-actions button{padding:6px 10px; font-size:12px;}
+  .btn-edit{background:var(--panel-2); color:var(--text); border:1px solid var(--line);}
+  .btn-delete{background:rgba(192,69,59,0.15); color:#e77b72; border:1px solid rgba(192,69,59,0.3);}
+  .empty-state{
+    text-align:center;
+    color:var(--muted);
+    padding:30px;
+    font-size:13px;
+  }
+  .search-bar{
+    display:flex;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .search-bar input{margin-bottom:0;}
+  .count-pill{
+    font-size:12px;
+    color:var(--muted);
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== Login screen ===== -->
+  <div id="loginScreen">
+    <div class="login-box">
+      <h1 class="brand">HABOUSH</h1>
+      <p>لوحة تحكم إدارة المنتجات</p>
+      <label for="loginEmail">البريد الإلكتروني</label>
+      <input id="loginEmail" type="email" placeholder="admin@example.com" autocomplete="username">
+      <label for="loginPass">كلمة المرور</label>
+      <input id="loginPass" type="password" placeholder="••••••••" autocomplete="current-password">
+      <div class="error-msg" id="loginError"></div>
+      <button class="btn-gold" id="loginBtn">تسجيل الدخول</button>
+    </div>
+  </div>
+
+  <!-- ===== Main app ===== -->
+  <div id="app">
+    <header>
+      <div class="brand">HABOUSH — لوحة التحكم</div>
+      <div class="who">
+        <span id="userEmail"></span>
+        <button class="btn-ghost" id="logoutBtn">تسجيل الخروج</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="card">
+        <h2 id="formTitle">إضافة منتج جديد</h2>
+        <form id="productForm">
+          <div class="grid2">
+            <div>
+              <label>معرّف المنتج (id) — فريد، مثال: skin-025</label>
+              <input id="f_id" required>
+            </div>
+            <div>
+              <label>الفئة (category)</label>
+              <select id="f_category">
+                <option value="skin">skin</option>
+                <option value="vitamins">vitamins</option>
+                <option value="hair">hair</option>
+                <option value="makeup">makeup</option>
+              </select>
+            </div>
+          </div>
+
+          <label>اسم المنتج</label>
+          <input id="f_name" required>
+
+          <label>الوصف</label>
+          <textarea id="f_description"></textarea>
+
+          <div class="grid3">
+            <div>
+              <label>السعر (شيكل)</label>
+              <input id="f_price" type="number" step="0.01" required>
+            </div>
+            <div>
+              <label>الكمية بالمخزون</label>
+              <input id="f_stock" type="number" value="50">
+            </div>
+            <div>
+              <label>رمز تعبيري (اختياري)</label>
+              <input id="f_emoji" placeholder="🌿">
+            </div>
+          </div>
+
+          <div class="grid2">
+            <div>
+              <label>الحجم (اختياري)</label>
+              <input id="f_size" placeholder="50ml">
+            </div>
+            <div>
+              <label>المنشأ (اختياري)</label>
+              <input id="f_origin" placeholder="كوريا">
+            </div>
+          </div>
+
+          <label>تعليمات الاستخدام (اختياري)</label>
+          <textarea id="f_usage"></textarea>
+
+          <div class="checks">
+            <div class="check-item">
+              <input type="checkbox" id="f_bestseller">
+              <label style="margin:0" for="f_bestseller">الأكثر مبيعاً</label>
+            </div>
+            <div class="check-item">
+              <input type="checkbox" id="f_korean">
+              <label style="margin:0" for="f_korean">منتج كوري</label>
+            </div>
+          </div>
+
+          <label>صورة المنتج</label>
+          <div class="img-preview" id="imgPreview">بدون صورة</div>
+          <input id="f_image_file" type="file" accept="image/*">
+
+          <div class="form-actions" style="margin-top:10px;">
+            <button type="submit" class="btn-gold" id="saveBtn" style="width:auto;">حفظ المنتج</button>
+            <button type="button" class="btn-ghost" id="cancelEditBtn" style="display:none;">إلغاء التعديل</button>
+            <span class="form-status" id="formStatus"></span>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>المنتجات الحالية</h2>
+        <div class="search-bar">
+          <input id="searchBox" placeholder="ابحث بالاسم أو الفئة...">
+          <span class="count-pill" id="countPill"></span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>الاسم</th>
+                <th>الفئة</th>
+                <th>السعر</th>
+                <th>المخزون</th>
+                <th>الأكثر مبيعاً</th>
+                <th>إجراءات</th>
+              </tr>
+            </thead>
+            <tbody id="productsTableBody"></tbody>
+          </table>
+          <div class="empty-state" id="emptyState" style="display:none;">لا توجد منتجات بعد</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+<script>
+// ==== Supabase config ====
+const SUPABASE_URL = "https://jnjfkxeseiotniqrgrha.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_Zg2VbVoOXoXREL4bgc7NGw_KRN7oviF";
+const BUCKET = "product-images";
+
+const supa = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let allProducts = [];
+let editingId = null;      // id of product currently being edited (null = adding new)
+let pendingFile = null;    // file chosen for upload
+
+// ---------- Auth ----------
+const loginScreen = document.getElementById('loginScreen');
+const app = document.getElementById('app');
+const loginError = document.getElementById('loginError');
+
+async function checkSession(){
+  const { data:{ session } } = await supa.auth.getSession();
+  if(session){
+    showApp(session.user.email);
+  } else {
+    loginScreen.style.display = 'flex';
+    app.style.display = 'none';
+  }
+}
+
+document.getElementById('loginBtn').addEventListener('click', async () => {
+  loginError.textContent = '';
+  const email = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPass').value;
+  if(!email || !password){
+    loginError.textContent = 'الرجاء تعبئة البريد وكلمة المرور';
+    return;
+  }
+  const { error } = await supa.auth.signInWithPassword({ email, password });
+  if(error){
+    loginError.textContent = 'بيانات الدخول غير صحيحة';
+    return;
+  }
+  const { data:{ session } } = await supa.auth.getSession();
+  showApp(session.user.email);
+});
+
+document.getElementById('logoutBtn').addEventListener('click', async () => {
+  await supa.auth.signOut();
+  loginScreen.style.display = 'flex';
+  app.style.display = 'none';
+});
+
+function showApp(email){
+  loginScreen.style.display = 'none';
+  app.style.display = 'block';
+  document.getElementById('userEmail').textContent = email;
+  loadProducts();
+}
+
+// ---------- Load & render products ----------
+async function loadProducts(){
+  const { data, error } = await supa
+    .from('products')
+    .select('*')
+    .order('created_at', { ascending:false });
+  if(error){
+    setStatus('تعذّر تحميل المنتجات: ' + error.message, true);
+    return;
+  }
+  allProducts = data || [];
+  renderTable(allProducts);
+}
+
+function renderTable(list){
+  const body = document.getElementById('productsTableBody');
+  const empty = document.getElementById('emptyState');
+  document.getElementById('countPill').textContent = list.length + ' منتج';
+  body.innerHTML = '';
+  if(list.length === 0){
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  for(const p of list){
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${p.image ? `<img class="thumb" src="${p.image}">` : `<div class="thumb"></div>`}</td>
+      <td>${escapeHtml(p.name)}</td>
+      <td>${escapeHtml(p.category || '')}</td>
+      <td>${p.price} ₪</td>
+      <td>${p.stock ?? '-'}</td>
+      <td>${p.bestseller ? `<span class="badge badge-gold">الأكثر مبيعاً</span>` : ''}</td>
+      <td>
+        <div class="row-actions">
+          <button class="btn-edit" data-edit="${p.id}">تعديل</button>
+          <button class="btn-delete" data-delete="${p.id}">حذف</button>
+        </div>
+      </td>
+    `;
+    body.appendChild(tr);
+  }
+  body.querySelectorAll('[data-edit]').forEach(btn=>{
+    btn.addEventListener('click', () => startEdit(btn.dataset.edit));
+  });
+  body.querySelectorAll('[data-delete]').forEach(btn=>{
+    btn.addEventListener('click', () => deleteProduct(btn.dataset.delete));
+  });
+}
+
+function escapeHtml(str){
+  const d = document.createElement('div');
+  d.textContent = str ?? '';
+  return d.innerHTML;
+}
+
+document.getElementById('searchBox').addEventListener('input', (e)=>{
+  const q = e.target.value.trim().toLowerCase();
+  if(!q){ renderTable(allProducts); return; }
+  renderTable(allProducts.filter(p =>
+    (p.name||'').toLowerCase().includes(q) || (p.category||'').toLowerCase().includes(q)
+  ));
+});
+
+// ---------- Image preview ----------
+document.getElementById('f_image_file').addEventListener('change', (e)=>{
+  pendingFile = e.target.files[0] || null;
+  const preview = document.getElementById('imgPreview');
+  if(pendingFile){
+    const reader = new FileReader();
+    reader.onload = () => { preview.innerHTML = `<img src="${reader.result}">`; };
+    reader.readAsDataURL(pendingFile);
+  }
+});
+
+// ---------- Add / Update ----------
+document.getElementById('productForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  setStatus('جارٍ الحفظ...');
+  document.getElementById('saveBtn').disabled = true;
+
+  const id = document.getElementById('f_id').value.trim();
+  const record = {
+    id,
+    name: document.getElementById('f_name').value.trim(),
+    description: document.getElementById('f_description').value.trim() || null,
+    price: parseFloat(document.getElementById('f_price').value),
+    category: document.getElementById('f_category').value,
+    emoji: document.getElementById('f_emoji').value.trim() || null,
+    size: document.getElementById('f_size').value.trim() || null,
+    origin: document.getElementById('f_origin').value.trim() || null,
+    usage_instructions: document.getElementById('f_usage').value.trim() || null,
+    bestseller: document.getElementById('f_bestseller').checked,
+    korean: document.getElementById('f_korean').checked,
+    stock: parseInt(document.getElementById('f_stock').value || '0', 10),
+  };
+
+  try{
+    // upload image if a new file was chosen
+    if(pendingFile){
+      const ext = pendingFile.name.split('.').pop();
+      const path = `${id}-${Date.now()}.${ext}`;
+      const { error: upErr } = await supa.storage.from(BUCKET).upload(path, pendingFile, { upsert:true });
+      if(upErr) throw upErr;
+      const { data: pub } = supa.storage.from(BUCKET).getPublicUrl(path);
+      record.image = pub.publicUrl;
+    }
+
+    if(editingId){
+      const { error } = await supa.from('products').update(record).eq('id', editingId);
+      if(error) throw error;
+      setStatus('تم تحديث المنتج ✓');
+    } else {
+      const { error } = await supa.from('products').insert(record);
+      if(error) throw error;
+      setStatus('تمت إضافة المنتج ✓');
+    }
+
+    resetForm();
+    await loadProducts();
+  } catch(err){
+    setStatus('خطأ: ' + err.message, true);
+  } finally {
+    document.getElementById('saveBtn').disabled = false;
+  }
+});
+
+function startEdit(id){
+  const p = allProducts.find(x => x.id === id);
+  if(!p) return;
+  editingId = id;
+  document.getElementById('formTitle').textContent = 'تعديل منتج: ' + p.name;
+  document.getElementById('f_id').value = p.id;
+  document.getElementById('f_id').disabled = true;
+  document.getElementById('f_name').value = p.name || '';
+  document.getElementById('f_description').value = p.description || '';
+  document.getElementById('f_price').value = p.price || '';
+  document.getElementById('f_category').value = p.category || 'skin';
+  document.getElementById('f_emoji').value = p.emoji || '';
+  document.getElementById('f_size').value = p.size || '';
+  document.getElementById('f_origin').value = p.origin || '';
+  document.getElementById('f_usage').value = p.usage_instructions || '';
+  document.getElementById('f_bestseller').checked = !!p.bestseller;
+  document.getElementById('f_korean').checked = !!p.korean;
+  document.getElementById('f_stock').value = p.stock ?? 50;
+  const preview = document.getElementById('imgPreview');
+  preview.innerHTML = p.image ? `<img src="${p.image}">` : 'بدون صورة';
+  document.getElementById('saveBtn').textContent = 'تحديث المنتج';
+  document.getElementById('cancelEditBtn').style.display = 'inline-block';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+document.getElementById('cancelEditBtn').addEventListener('click', resetForm);
+
+function resetForm(){
+  editingId = null;
+  pendingFile = null;
+  document.getElementById('productForm').reset();
+  document.getElementById('f_id').disabled = false;
+  document.getElementById('f_stock').value = 50;
+  document.getElementById('formTitle').textContent = 'إضافة منتج جديد';
+  document.getElementById('saveBtn').textContent = 'حفظ المنتج';
+  document.getElementById('cancelEditBtn').style.display = 'none';
+  document.getElementById('imgPreview').innerHTML = 'بدون صورة';
+}
+
+async function deleteProduct(id){
+  if(!confirm('متأكد إنك بدك تحذف هاد المنتج؟ هذا الإجراء لا يمكن التراجع عنه.')) return;
+  const { error } = await supa.from('products').delete().eq('id', id);
+  if(error){
+    alert('تعذّر الحذف: ' + error.message);
+    return;
+  }
+  await loadProducts();
+}
+
+function setStatus(msg, isError){
+  const el = document.getElementById('formStatus');
+  el.textContent = msg;
+  el.style.color = isError ? 'var(--danger)' : 'var(--muted)';
+}
+
+checkSession();
+</script>
+</body>
+</html>

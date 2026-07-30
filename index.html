@@ -3,8 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>حبوش | HABOUSH — مستحضرات تجميل احترافية</title>
-  <meta name="description" content="حبوش - متجر مستحضرات التجميل الاحترافي في غزة. منتجات شعر، مكياج، عناية بالبشرة والأظافر لصالونات التجميل." />
+  <title>حبوش | HABOUSH — منتجات عناية وتجميل أصلية</title>
+  <meta name="description" content="حبوش - متجر متخصص في العناية بالبشرة والشعر ومنتجات الكي-بيوتي الكورية في غزة. منتجات أصلية 100% مع توصيل داخل غزة." />
+  <meta name="keywords" content="حبوش, HABOUSH, عناية بالبشرة, عناية بالشعر, منتجات كورية, K-Beauty غزة, مزيل عرق, فيتامينات, تجميل غزة, صبغات شعر, متجر تجميل فلسطين" />
+  <meta name="author" content="حبوش | HABOUSH" />
+
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="حبوش | HABOUSH — منتجات عناية وتجميل أصلية في غزة 🌸" />
+  <meta property="og:description" content="تسوقي أحدث منتجات العناية بالبشرة، الشعر، المنتجات الكورية والفيتامينات مع توصيل مباشر لجميع مناطق قطاع غزة." />
+  <meta property="og:image" content="assets/logo-full.png" />
+  <meta property="og:site_name" content="حبوش HABOUSH" />
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "حبوش | HABOUSH",
+    "description": "متجر متخصص في منتجات العناية بالبشرة والشعر والمنتجات الكورية الأصلية في قطاع غزة.",
+    "telephone": "+970593805308",
+    "priceRange": "₪₪",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "غزة",
+      "addressCountry": "PS"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
@@ -12,13 +38,17 @@
 </head>
 <body>
 
+  <!-- ===== ANNOUNCEMENT BANNER ===== -->
+  <div class="announcement-bar">
+    <p>✨ منتجات عناية أصلية 100% — توصيل داخل قطاع غزة</p>
+    <a href="#categories" class="announcement-cta">تسوّقي الآن ←</a>
+  </div>
+
   <!-- ===== HEADER ===== -->
   <header id="header">
     <nav class="nav-container">
       <div class="logo" id="logo-btn">
-        <div class="logo-mark">
-          <span class="logo-a">A</span><span class="logo-h">H</span>
-        </div>
+        <img src="assets/logo-mark.png" alt="حبوش HABOUSH" class="logo-mark-img" />
         <div class="logo-text">
           <span class="brand-ar">حبوش</span>
           <span class="brand-en">HABOUSH</span>
@@ -53,13 +83,13 @@
       <div class="hero-orb orb-3"></div>
     </div>
     <div class="hero-content">
-      <div class="hero-badge">✨ مستحضرات احترافية للصالونات</div>
+      <div class="hero-badge">✨ منتجات عناية وتجميل أصلية 100%</div>
       <h1 class="hero-title">
         جمالك يستحق
         <span class="gold-text">الأفضل</span>
       </h1>
       <p class="hero-subtitle">
-        كل ما تحتاجينه في صالونك من منتجات شعر، مكياج،
+        كل ما تحتاجينه في صالونك من منتجات شعر،
         عناية بالبشرة والأظافر — بجودة عالية وتوصيل داخل غزة
       </p>
       <div class="hero-actions">
@@ -68,12 +98,12 @@
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <span class="stat-num">70+</span>
+          <span class="stat-num">63</span>
           <span class="stat-label">منتج متوفر</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <span class="stat-num">6</span>
+          <span class="stat-num">7</span>
           <span class="stat-label">فئات رئيسية</span>
         </div>
         <div class="stat-divider"></div>
@@ -85,8 +115,8 @@
     </div>
     <div class="hero-visual">
       <div class="hero-card floating">
-        <div class="hero-card-icon">💄</div>
-        <p>مكياج احترافي</p>
+        <div class="hero-card-icon">🇰🇷</div>
+        <p>عناية كورية (K-Beauty)</p>
       </div>
       <div class="hero-card floating delay-1">
         <div class="hero-card-icon">💇</div>
@@ -106,24 +136,57 @@
     </a>
   </section>
 
+  <!-- ===== HIGHLIGHT SECTIONS ===== -->
+  <section class="highlights-section">
+    <div class="container">
+      <div class="highlight-row" id="row-bestseller">
+        <div class="highlight-row-header">
+          <h2 class="highlight-title">🔥 الأكثر مبيعاً</h2>
+        </div>
+        <div class="highlight-scroll" id="bestseller-scroll"></div>
+      </div>
+
+      <div class="highlight-row" id="row-new">
+        <div class="highlight-row-header">
+          <h2 class="highlight-title">✨ أحدث المنتجات</h2>
+        </div>
+        <div class="highlight-scroll" id="new-scroll"></div>
+      </div>
+
+      <div class="highlight-row" id="row-offer">
+        <div class="highlight-row-header">
+          <h2 class="highlight-title">🏷️ العروض</h2>
+        </div>
+        <div class="highlight-scroll" id="offer-scroll"></div>
+      </div>
+
+      <div class="highlight-row" id="row-korean">
+        <div class="highlight-row-header">
+          <h2 class="highlight-title">🇰🇷 منتجات كورية (K-Beauty)</h2>
+        </div>
+        <div class="highlight-scroll" id="korean-scroll"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CATEGORIES ===== -->
   <section id="categories" class="categories-section">
     <div class="container">
       <div class="section-header">
         <span class="section-badge">تصفحي بحسب الفئة</span>
         <h2 class="section-title">منتجاتنا</h2>
-        <p class="section-subtitle">كل ما يحتاجه الصالون الاحترافي في مكان واحد</p>
+        <p class="section-subtitle">كل ما تحتاجينه لروتين عنايتكِ وجمالكِ اليومي في مكان واحد</p>
       </div>
       <div class="categories-grid">
         <div class="category-card active" data-category="all" id="cat-all">
           <div class="cat-icon">🛍️</div>
           <h3>الكل</h3>
-          <span class="cat-count" id="count-all">70+</span>
+          <span class="cat-count" id="count-all">63</span>
         </div>
         <div class="category-card" data-category="hair" id="cat-hair">
           <div class="cat-icon">💇</div>
           <h3>منتجات الشعر</h3>
-          <span class="cat-count" id="count-hair">30+</span>
+          <span class="cat-count" id="count-hair">18</span>
         </div>
         <div class="category-card" data-category="nails" id="cat-nails">
           <div class="cat-icon">💅</div>
@@ -133,17 +196,22 @@
         <div class="category-card" data-category="skin" id="cat-skin">
           <div class="cat-icon">🧖</div>
           <h3>العناية بالبشرة</h3>
-          <span class="cat-count" id="count-skin">10</span>
+          <span class="cat-count" id="count-skin">8</span>
         </div>
-        <div class="category-card" data-category="makeup" id="cat-makeup">
-          <div class="cat-icon">💄</div>
-          <h3>المكياج</h3>
-          <span class="cat-count" id="count-makeup">14</span>
+        <div class="category-card" data-category="deodorant" id="cat-deodorant">
+          <div class="cat-icon">🌿</div>
+          <h3>مزيلات العرق</h3>
+          <span class="cat-count" id="count-deodorant">6</span>
+        </div>
+        <div class="category-card" data-category="vitamins" id="cat-vitamins">
+          <div class="cat-icon">💊</div>
+          <h3>الفيتامينات</h3>
+          <span class="cat-count" id="count-vitamins">6</span>
         </div>
         <div class="category-card" data-category="tools" id="cat-tools">
           <div class="cat-icon">🪮</div>
-          <h3>أدوات الصالون</h3>
-          <span class="cat-count" id="count-tools">15</span>
+          <h3>أجهزة وأدوات الشعر</h3>
+          <span class="cat-count" id="count-tools">13</span>
         </div>
         <div class="category-card" data-category="removal" id="cat-removal">
           <div class="cat-icon">🌸</div>
@@ -162,6 +230,17 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <input type="text" id="search-input" placeholder="ابحثي عن منتج..." />
         </div>
+        <div class="filter-controls">
+          <select id="sort-select" class="filter-select">
+            <option value="default">ترتيب حسب</option>
+            <option value="price-asc">السعر: من الأقل للأعلى</option>
+            <option value="price-desc">السعر: من الأعلى للأقل</option>
+          </select>
+          <label class="filter-checkbox">
+            <input type="checkbox" id="offers-only-checkbox" />
+            <span>العروض فقط 🏷️</span>
+          </label>
+        </div>
         <span class="products-count" id="products-count">عرض جميع المنتجات</span>
       </div>
       <div class="products-grid" id="products-grid">
@@ -178,7 +257,7 @@
   <section id="about" class="about-section">
     <div class="container about-grid">
       <div class="about-visual">
-        <img src="assets/logo.jpg" alt="حبوش" class="about-logo-img" style="max-width: 280px; border-radius: var(--radius); box-shadow: var(--shadow-gold);" />
+        <img src="assets/logo-full.png" alt="حبوش HABOUSH" class="about-logo-img" loading="lazy" />
         <div class="about-glow"></div>
       </div>
       <div class="about-content">
@@ -210,6 +289,75 @@
             <span class="feature-icon">💳</span>
             <span>دفع عند الاستلام أو بنكياً</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">ثقة تجاربكم</span>
+        <h2 class="section-title">آراء جميلات حبوش 🌸</h2>
+        <p class="section-subtitle">سعداء بتوفير أفضل منتجات العناية لزبائننا في قطاع غزة</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-quote">"تعامل راقي جداً والمنتجات الكورية وصلتني أصلية 100% وفي وقت سريع جداً بالرغم من الظروف. شكراً متجر حبوش!"</p>
+          <div class="testimonial-user">
+            <div class="avatar-placeholder">ر</div>
+            <div class="user-info">
+              <h4>ريم ن.</h4>
+              <span>غزة — الرمال</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-quote">"سيروم فيتامين سي ومزيل العرق ممتازين ونتايجهم ظهرت من أول أسبوع. التوصيل كان سريع والدفع عند الاستلام مريح جداً."</p>
+          <div class="testimonial-user">
+            <div class="avatar-placeholder">س</div>
+            <div class="user-info">
+              <h4>سارة م.</h4>
+              <span>خان يونس</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-quote">"أجهزة السشوار والسيراميك جودتها عالية وسعرها ممتاز مقارنة بالسوق. أنصح أي بنت حابة عناية حقيقية تطلب منهم."</p>
+          <div class="testimonial-user">
+            <div class="avatar-placeholder">م</div>
+            <div class="user-info">
+              <h4>مريم خ.</h4>
+              <span>الوسطى — النصيرات</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POLICIES & GUARANTEE ===== -->
+  <section class="policy-section">
+    <div class="container">
+      <div class="policy-grid">
+        <div class="policy-card">
+          <div class="policy-icon">✨</div>
+          <h3>منتجات أصلية 100%</h3>
+          <p>جميع منتجاتنا مستوردة ومفحوصة لضمان جودتها وسلامة بشرتكِ.</p>
+        </div>
+        <div class="policy-card">
+          <div class="policy-icon">🔄</div>
+          <h3>سياسة الاستبدال والضمان</h3>
+          <p>حقكِ محفوظ! استبدال فوري مجاني خلال 3 أيام في حال وجود أي خلل مصنعي في المنتجات أو الأجهزة.</p>
+        </div>
+        <div class="policy-card">
+          <div class="policy-icon">🚚</div>
+          <h3>توصيل آمن وسريع</h3>
+          <p>نغطي كافة مناطق قطاع غزة (الشمال، غزة، الوسطى، خان يونس، رفح) وتوصيل لباب بيتكِ.</p>
         </div>
       </div>
     </div>
@@ -321,9 +469,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-logo">
-        <div class="logo-mark small">
-          <span class="logo-a">A</span><span class="logo-h">H</span>
-        </div>
+        <img src="assets/logo-mark.png" alt="حبوش HABOUSH" class="logo-mark-img small" />
         <div class="logo-text">
           <span class="brand-ar">حبوش</span>
           <span class="brand-en">HABOUSH</span>
@@ -359,6 +505,43 @@
         <span>المجموع:</span>
         <span class="total-price" id="total-price">0 ₪</span>
       </div>
+
+      <div class="payment-select" id="payment-select">
+        <p class="payment-select-label">طريقة الدفع</p>
+        <div class="payment-options">
+          <label class="payment-option">
+            <input type="radio" name="payment-method" value="cash" checked />
+            <span class="payment-option-icon">💵</span>
+            <span>كاش عند الاستلام</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="payment-method" value="bank" />
+            <span class="payment-option-icon">🏦</span>
+            <span>بنك فلسطين</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="payment-method" value="jawwalpay" />
+            <span class="payment-option-icon">📱</span>
+            <span>جوال باي</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="payment-method" value="palpay" />
+            <span class="payment-option-icon">💳</span>
+            <span>بال باي</span>
+          </label>
+        </div>
+
+        <div class="payment-instant-box hidden" id="payment-instant-box">
+          <p class="payment-instant-text">
+            حوّلي المبلغ (<span id="payment-instant-total">0 ₪</span>) على الرقم:
+            <strong id="payment-instant-number">0593805308</strong>
+          </p>
+          <label class="payment-ref-label" for="payment-ref-input">رقم/مرجع عملية التحويل *</label>
+          <input type="text" id="payment-ref-input" class="payment-ref-input" placeholder="مثال: 123456" />
+          <p class="payment-instant-hint">بعد التحويل، اكتبي رقم العملية هون حتى نأكد طلبك بسرعة ✅</p>
+        </div>
+      </div>
+
       <p class="cart-note">* سيتم التواصل معك لتأكيد سعر التوصيل</p>
       <button class="btn btn-whatsapp" id="whatsapp-order-btn">
         <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -373,12 +556,15 @@
       <button class="modal-close" id="modal-close" aria-label="إغلاق">✕</button>
       <div class="modal-body">
         <div class="modal-visual">
-          <span class="modal-emoji" id="modal-emoji">💄</span>
+          <span class="modal-emoji" id="modal-emoji">🧴</span>
         </div>
         <div class="modal-info">
-          <span class="modal-badge" id="modal-category">مكياج</span>
+          <span class="modal-badge" id="modal-category">عناية</span>
           <h2 class="modal-title" id="modal-title">اسم المنتج</h2>
           <p class="modal-desc" id="modal-desc">وصف تفصيلي للمنتج ومميزاته وطريقة استخدامه.</p>
+
+          <div class="modal-details" id="modal-details"></div>
+
           <div class="modal-footer-row">
             <span class="modal-price" id="modal-price">0 ₪</span>
             <button class="btn btn-primary" id="modal-add-btn">أضيفي للسلة 🛍️</button>
